@@ -1,0 +1,25 @@
+{
+  "asi": false,
+  "boss": true,
+  "browser": true,
+  "curly": true,
+  "devel": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "funcscope": true,
+  "jquery": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "node": true,
+  "noempty": true,
+  "nonew": true,
+  "regexdash": true,
+  "supernew": true,
+  "undef": true,
+  "white": false,
+  "laxcomma": true,
+  "globals": {
+    "jQuery": true
+  }
+}

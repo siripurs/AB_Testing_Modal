@@ -1,0 +1,147 @@
+@import "variables";
+
+// Add main less styles here
+
+#responsive {
+
+	#user-state {
+		width: 50%;
+		float: left;
+	}
+
+	#user-address {
+		width: 50%;
+		float: right;
+	}
+
+	input[type="submit"] {
+		padding: 14px;
+    background-color: #d1d1d1;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ff851f;
+    border-color: #e56800;
+    color: #fff;
+    width: 170px;
+    margin-top: 25px;
+	}
+
+	.modal-header {
+		border-bottom: none;
+	}
+
+	&.modal {
+		background-color: #eee;
+		width: 900px;
+	}
+
+	.modal-body {
+		padding: 13px 26px;
+	}
+
+	.form-control {
+		border-radius: 2px;
+		font-size: 16px;
+		padding: 25px;
+		margin: 0 15px;
+	}
+
+	.col-50 {
+		width: 50%;
+	}
+
+	select {
+		height: 50px;   
+	}
+
+	.bg_image {
+		background: url(/dist/images/img_no_checkmark.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 400px;
+    height: 400px;
+	}
+
+	.bg_image_cm {
+		background: url(/dist/images/img_checkmark.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 400px;
+    height: 400px;
+	}
+
+	.right-col {
+		text-align:center;
+		padding-top: 10px;
+	}
+
+	input.invalid {
+		border: 2px solid #e75600;
+	}
+
+	input.valid {
+		border: 2px solid green;
+	}
+
+	.error {
+		display: none;
+	}		
+
+	.error_show{
+		color: #fff;
+		padding: 5px;
+		background-color: #e75600;
+		margin-left: 15px;
+    width: 100%;
+	}
+
+	.floating-label-form-group {
+	  margin-bottom: 0;
+	  position: relative;
+	}
+
+	.floating-label-form-group input {
+	  box-shadow: none !important;
+	  position: relative;
+	  z-index: 1;
+	  resize: none;
+	}
+	  
+	.floating-label-form-group label {
+	  display: block;
+	  position: relative;
+	  padding-left: 15px;
+	  top: 2em;
+	  opacity: 0;
+	  z-index: 0;
+	  font-size: 0.85em;
+	  line-height: 1.764705882em;
+	  vertical-align: middle;
+	  vertical-align: baseline;
+	  margin: 0;
+	  -webkit-transition: top 0.5s ease, opacity 0.5s ease;
+	     -moz-transition: top 0.5s ease, opacity 0.5s ease;
+	      -ms-transition: top 0.5s ease, opacity 0.5s ease;
+	          transition: top 0.5s ease, opacity 0.5s ease;
+	}
+
+	.floating-label-form-group-with-value label {
+	  top: 0;
+	  opacity: 1;
+	}
+
+	.floating-label-form-group-with-focus label {
+	  color: #000;
+	}
+
+	form .row:first-child .floating-label-form-group {
+	  border: 1px solid #ccc;
+	}
+
+	.form-horizontal .form-group {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+}

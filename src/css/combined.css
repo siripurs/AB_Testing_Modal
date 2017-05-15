@@ -41,14 +41,14 @@
   height: 50px;
 }
 #responsive .bg_image {
-  background: url(/dist/images/img_no_checkmark.png);
+  background: url("/dist/images/imgnocheckmark.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 400px;
   height: 400px;
 }
 #responsive .bg_image_cm {
-  background: url(/dist/images/img_checkmark.png);
+  background: url("/dist/images/imgcheckmark.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 400px;

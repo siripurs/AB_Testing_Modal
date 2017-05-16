@@ -1,22 +1,27 @@
+//Document Ready
 $(function() {
+  sessionIdObj();
+  formSubmit();
+  userNameFieldValidation();
+  userEmailInputEvent();
+  floatingLabels();
+});
 
-  //Create a javascript object with key ‘session_id’ and value as current timestamp
+//Function creates an object with sessionid as key and value as current timestamp
+function sessionIdObj() {
+  var timestamp = new Date().getTime();
   $("#modal-btn").on('click', function(){
-    var sessionObj = {},
-        currentTimeStamp = new Date();
-
-    currentTimeStamp.getHours();
-    currentTimeStamp.getMinutes();
-    currentTimeStamp.getSeconds();
-    sessionObj.sessionId = currentTimeStamp;
+    var sessionObj = {
+      "sessionID": timestamp
+    };
 
     console.log("clicked:  " + JSON.stringify(sessionObj));
-
   });
+}
 
-
+//On form submit, do the error validation, prevent submission and create a json object with form fields
+function formSubmit() {
   $("#userForm").submit(function( event ) {
-
     var form_data = $(this).serializeArray(),
         error_free = true,
         dataObj = {},
@@ -38,25 +43,24 @@ $(function() {
       }
     });
 
-   // if (!error_free){
-      event.preventDefault(); 
-    //}
-
+    event.preventDefault(); 
     jsonFormData(form_data);
-
   });
+}
 
-  //Objectify form data
-  function jsonFormData(formArray) {
-    var dataArray = {};
-    for (var i = 0; i < formArray.length; i++){
-      dataArray[formArray[i].name] = formArray[i].value;
-    }
-    console.log(dataArray);
+//Objectify form data
+function jsonFormData(formArray) {
+  var dataArray = {};
+  for (var i = 0; i < formArray.length; i++){
+    dataArray[formArray[i].name] = formArray[i].value;
   }
 
-  //user name field validation
-  $('#user_name').on('input', function() {
+  console.log(dataArray);
+}
+
+//user name field error validation
+function userNameFieldValidation() {
+  $('#user_name').on('keyup', function() {
     var input = $(this),
         is_name = input.val();
 
@@ -68,13 +72,17 @@ $(function() {
       input.removeClass("valid").addClass("invalid");
     }
   });
+}
 
-  //Input event listener on user email field
-  $("#user_email").on("input", function(e) {
+//Input event listener for user email field
+function userEmailInputEvent() {
+  $("#user_email").on("keyup", function(e) {
     console.log("Input event listener on user email field:  " + $(this).val());
   });
+}
 
-  //Floating labels on form fields
+//Floating labels on form fields
+function floatingLabels() {
   $("body").on("input propertychange", ".floating-label-form-group", function(e) {
     $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
   }).on("focus", ".floating-label-form-group", function() {
@@ -82,5 +90,4 @@ $(function() {
   }).on("blur", ".floating-label-form-group", function() {
     $(this).removeClass("floating-label-form-group-with-focus");
   });
-
-});
+}

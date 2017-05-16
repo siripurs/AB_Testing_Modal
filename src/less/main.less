@@ -34,6 +34,13 @@
 	&.modal {
 		background-color: #eee;
 		width: 900px;
+		left: 40%;
+		&.fade {
+			transition: top .5s ease-out,bottom .5s ease-out,margin-top 1s ease-out;
+			&.in {
+				top: 20%;
+			}
+		}
 	}
 
 	.modal-body {
@@ -55,16 +62,16 @@
 		height: 50px;   
 	}
 
-	.bg_image {
-		background: url("/dist/images/imgnocheckmark.png");
+	#bg_image {
+		background: green;
 	    background-repeat: no-repeat;
 	    background-size: 100% 100%;
 	    width: 400px;
 	    height: 400px;
 	}
 
-	.bg_image_cm {
-		background: url("/dist/images/imgcheckmark.png");
+	#bg_image_cm {
+		background: red;
 	    background-repeat: no-repeat;
 	    background-size: 100% 100%;
 	    width: 400px;

@@ -24,6 +24,13 @@
 #responsive.modal {
   background-color: #eee;
   width: 900px;
+  left: 40%;
+}
+#responsive.modal.fade {
+  transition: top 0.5s ease-out, bottom 0.5s ease-out, margin-top 1s ease-out;
+}
+#responsive.modal.fade.in {
+  top: 20%;
 }
 #responsive .modal-body {
   padding: 13px 26px;
@@ -40,15 +47,15 @@
 #responsive select {
   height: 50px;
 }
-#responsive .bg_image {
-  background: url("/dist/images/imgnocheckmark.png");
+#responsive #bg_image {
+  background: green;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 400px;
   height: 400px;
 }
-#responsive .bg_image_cm {
-  background: url("/dist/images/imgcheckmark.png");
+#responsive #bg_image_cm {
+  background: red;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 400px;

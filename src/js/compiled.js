@@ -18,7 +18,7 @@ $(function() {
   userNameFieldValidation();
   userEmailInputEvent();
   floatingLabels();
-  savePageVariationIdentifier();
+  setTimeout(function(){savePageVariationIdentifier();}, 100);
 });
 
 //Function creates an object with sessionid as key and value as current timestamp
@@ -104,7 +104,10 @@ function userEmailInputEvent() {
 }
 
 function savePageVariationIdentifier() {
-  console.log("Variation Identifier:  " + window.readCookie("ABTestModal-cookie"));
+  if (!sessionStorage.getItem('variationId')) {
+    sessionStorage.setItem('variationId', window.readCookie("ABTestModal-cookie"));
+  }
+  console.log("Variation Identifier:  " + sessionStorage.getItem('variationId'));
 }
 
 //Floating labels on form fields

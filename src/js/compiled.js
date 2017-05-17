@@ -18,6 +18,7 @@ $(function() {
   userNameFieldValidation();
   userEmailInputEvent();
   floatingLabels();
+  savePageVariationIdentifier();
 });
 
 //Function creates an object with sessionid as key and value as current timestamp
@@ -100,6 +101,10 @@ function userEmailInputEvent() {
   $("#user_email").on("keyup", function(e) {
     console.log("Input event listener on user email field:  " + $(this).val());
   });
+}
+
+function savePageVariationIdentifier() {
+  console.log("Variation Identifier:  " + window.readCookie("ABTestModal-cookie"));
 }
 
 //Floating labels on form fields

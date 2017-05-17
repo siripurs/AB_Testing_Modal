@@ -1,4 +1,6 @@
 //Document Ready
+/*jshint esnext: true */
+
 $(function() {
   sessionIdObj();
   formSubmit();
@@ -9,13 +11,20 @@ $(function() {
 
 //Function creates an object with sessionid as key and value as current timestamp
 function sessionIdObj() {
-  var timestamp = new Date().getTime();
+
+  if (!sessionStorage.getItem('sessionId')) {
+    sessionStorage.setItem('sessionId', new Date().getTime());
+  }
+
+// Get saved data from sessionStorage
+  var sessionId = sessionStorage.getItem('sessionId');
+
   $("#modal-btn").on('click', function(){
     var sessionObj = {
-      "sessionID": timestamp
+      "sessionID": sessionId
     };
 
-    console.log("clicked:  " + JSON.stringify(sessionObj));
+    console.log("SessionId :  " + JSON.stringify(sessionObj));
   });
 }
 
@@ -70,6 +79,7 @@ function userNameFieldValidation() {
     }
     else{
       input.removeClass("valid").addClass("invalid");
+      input.next().show();
     }
   });
 }

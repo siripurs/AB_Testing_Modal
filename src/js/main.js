@@ -93,10 +93,7 @@ function userEmailInputEvent() {
 }
 
 function savePageVariationIdentifier() {
-  if (!sessionStorage.getItem('variationId')) {
-    sessionStorage.setItem('variationId', window.readCookie("ABTestModal-cookie"));
-  }
-  console.log("Variation Identifier:  " + sessionStorage.getItem('variationId'));
+  console.log("Variation Identifier:  " +  window.readCookie("ABTestModal-cookie"));
 }
 
 //Floating labels on form fields

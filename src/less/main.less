@@ -29,7 +29,6 @@
 
 		input[type="submit"] {
 			padding: 14px;
-	    background-color: #d1d1d1;
 	    border-radius: 5px;
 	    font-size: 20px;
 	    font-weight: bold;
@@ -55,7 +54,14 @@
 		}
 
 		select {
-			height: 52px;   
+			height: 52px; 
+
+			&::-webkit-input-placeholder,
+			&::-moz-placeholder,
+			&:-ms-input-placeholder,
+			&:-moz-placeholder {
+			  color: #9d9d9d;
+			}  
 		}
 
 		.right-col {
@@ -72,21 +78,36 @@
 		}
 
 		.form-horizontal {
-
 			.form-control {
 				border-radius: 2px;
 		    box-sizing: border-box;
 		    font-size: 16px;
 		    height: 57px;
 		    margin: 0 15px;
-		    padding: 17px;
+		    padding: 15px;
 				-moz-box-sizing: border-box;
 			}
 
 			input {
+				&::-webkit-input-placeholder,
+				&::-moz-placeholder,
+				&:-ms-input-placeholder,
+				&:-moz-placeholder {
+				  color: #9d9d9d;
+				}
+
+				&::-webkit-contacts-auto-fill-button {
+				  visibility: hidden;
+				  display: none !important;
+				  pointer-events: none;
+				  position: absolute;
+				  right: 0;
+				}
+
 				&.invalid {
 					border: 2px solid #e75600;
 				}
+				
 				&.valid {
 					border: 2px solid green;
 					background-image: url("../images/img-valid.svg");
@@ -98,6 +119,11 @@
 
 			.error {
 				display: none;
+				color: #fff;
+		    padding: 5px;
+		    background-color: #e75600;
+		    margin-left: 15px;
+		    width: 100%;
 			}		
 
 			.error_show{

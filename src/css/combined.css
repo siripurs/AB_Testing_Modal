@@ -19,7 +19,6 @@
 }
 #responsive.modal input[type="submit"] {
   padding: 14px;
-  background-color: #d1d1d1;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
@@ -43,6 +42,12 @@
 #responsive.modal select {
   height: 52px;
 }
+#responsive.modal select::-webkit-input-placeholder,
+#responsive.modal select::-moz-placeholder,
+#responsive.modal select:-ms-input-placeholder,
+#responsive.modal select:-moz-placeholder {
+  color: #9d9d9d;
+}
 #responsive.modal .right-col {
   text-align: center;
   padding-top: 10px;
@@ -60,8 +65,21 @@
   font-size: 16px;
   height: 57px;
   margin: 0 15px;
-  padding: 17px;
+  padding: 15px;
   -moz-box-sizing: border-box;
+}
+#responsive.modal .form-horizontal input::-webkit-input-placeholder,
+#responsive.modal .form-horizontal input::-moz-placeholder,
+#responsive.modal .form-horizontal input:-ms-input-placeholder,
+#responsive.modal .form-horizontal input:-moz-placeholder {
+  color: #9d9d9d;
+}
+#responsive.modal .form-horizontal input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
 }
 #responsive.modal .form-horizontal input.invalid {
   border: 2px solid #e75600;
@@ -75,6 +93,11 @@
 }
 #responsive.modal .form-horizontal .error {
   display: none;
+  color: #fff;
+  padding: 5px;
+  background-color: #e75600;
+  margin-left: 15px;
+  width: 100%;
 }
 #responsive.modal .form-horizontal .error_show {
   color: #fff;

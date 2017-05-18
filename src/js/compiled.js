@@ -29,10 +29,10 @@ function sessionIdObj() {
   }
 
 // Get saved data from sessionStorage
-  var sessionId = sessionStorage.getItem('sessionId');
+  let sessionId = sessionStorage.getItem('sessionId');
 
   $("#modal-btn").on('click', function(){
-    var sessionObj = {
+    let sessionObj = {
       "sessionID": sessionId
     };
 
@@ -104,10 +104,7 @@ function userEmailInputEvent() {
 }
 
 function savePageVariationIdentifier() {
-  if (!sessionStorage.getItem('variationId')) {
-    sessionStorage.setItem('variationId', window.readCookie("ABTestModal-cookie"));
-  }
-  console.log("Variation Identifier:  " + sessionStorage.getItem('variationId'));
+  console.log("Variation Identifier:  " +  window.readCookie("ABTestModal-cookie"));
 }
 
 //Floating labels on form fields

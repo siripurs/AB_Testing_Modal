@@ -14,8 +14,6 @@ module.exports = function(grunt){
     js_combine_files : [
       'src/vendor/js/jquery-1.10.1.min.js',
       'src/vendor/js/bootstrap.min.js',
-      // 'src/vendor/js/bootstrap-modalmanager.js',
-      // 'src/vendor/js/bootstrap-modal.js',
       'src/js/main.js'],
     
     js_hint_files : [

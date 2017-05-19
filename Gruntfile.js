@@ -117,8 +117,8 @@ module.exports = function(grunt){
 
 
   // Register tasks
-  grunt.registerTask('build', ['less','cssmin','jshint','concat','browserify:dist','uglify', 'copy']);
-  grunt.registerTask('watch', ['less','cssmin','jshint','concat','browserify:dist','uglify', 'copy']);
+  grunt.registerTask('build', ['less','cssmin','jshint','browserify:dist','concat','uglify', 'copy']);
+  grunt.registerTask('watch', ['less','cssmin','jshint','browserify:dist','concat','uglify', 'copy']);
   grunt.registerTask('default', ['less','cssmin','concat','uglify','jshint']);
 
   grunt.event.on('watch', function(action, filepath) {

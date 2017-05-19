@@ -7,7 +7,7 @@ $(function() {
   userNameFieldValidation();
   userEmailInputEvent();
   floatingLabels();
-  savePageVariationIdentifier();
+  setTimeout(function(){savePageVariationIdentifier();}, 100);
 });
 
 //Function creates an object with sessionid as key and value as current timestamp on button click

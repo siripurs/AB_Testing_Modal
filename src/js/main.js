@@ -65,7 +65,9 @@ var jsonFormData = (formArray) => {
     dataArray[formArray[i].name] = formArray[i].value;
   }
 
-  dataArray.layoutVariation = window.readCookie("ABTestModal-cookie");
+  if(window.readCookie) {
+    dataArray.layoutVariation = window.readCookie("ABTestModal-cookie");
+  }
 
   console.log("json object with form fields and variation Id:  " + JSON.stringify(dataArray));
 };
@@ -95,7 +97,9 @@ var userEmailInputEvent = () => {
 };
 
 var savePageVariationIdentifier = () => {
-  console.log("Variation Identifier:  " +  window.readCookie("ABTestModal-cookie"));
+  if(window.readCookie) {
+    console.log("Variation Identifier:  " +  window.readCookie("ABTestModal-cookie"));
+  }
 };
 
 //Floating labels on form fields

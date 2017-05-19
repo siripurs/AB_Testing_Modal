@@ -7,39 +7,39 @@ $(function() {
   userNameFieldValidation();
   userEmailInputEvent();
   floatingLabels();
-  setTimeout(function(){savePageVariationIdentifier();}, 100);
+  savePageVariationIdentifier();
 });
 
-//Function creates an object with sessionid as key and value as current timestamp
-function sessionIdObj() {
+//Function creates an object with sessionid as key and value as current timestamp on button click
+var sessionIdObj = () => {
 
   if (!sessionStorage.getItem('sessionId')) {
     sessionStorage.setItem('sessionId', new Date().getTime());
   }
 
 // Get saved data from sessionStorage
-  var sessionId = sessionStorage.getItem('sessionId');
+  let sessionId = sessionStorage.getItem('sessionId');
 
   $("#modal-btn").on('click', function(){
-    var sessionObj = {
+    let sessionObj = {
       "sessionID": sessionId
     };
 
     console.log("SessionId :  " + JSON.stringify(sessionObj));
   });
-}
+};
 
 //On form submit, do the error validation, prevent submission and create a json object with form fields
-function formSubmit() {
+var formSubmit = () => {
   $("#userForm").submit(function( event ) {
-    var form_data = $(this).serializeArray(),
+    let form_data = $(this).serializeArray(),
         error_free = true,
         dataObj = {},
         data;
 
     $(form_data).each(function(i, field) {
       dataObj[field.name] = field.name;
-      var element = $("#user_" + dataObj[field.name]),
+      let element = $("#user_" + dataObj[field.name]),
           valid = element.hasClass("valid"),
           error_element = $("div", element.parent());
 
@@ -56,22 +56,24 @@ function formSubmit() {
     event.preventDefault(); 
     jsonFormData(form_data);
   });
-}
+};
 
 //Objectify form data
-function jsonFormData(formArray) {
-  var dataArray = {};
-  for (var i = 0; i < formArray.length; i++){
+var jsonFormData = (formArray) => {
+  let dataArray = {};
+  for (let i = 0; i < formArray.length; i++){
     dataArray[formArray[i].name] = formArray[i].value;
   }
 
-  console.log(dataArray);
-}
+  dataArray.layoutVariation = window.readCookie("ABTestModal-cookie");
+
+  console.log("json object with form fields and variation Id:  " + JSON.stringify(dataArray));
+};
 
 //user name field error validation
-function userNameFieldValidation() {
+var userNameFieldValidation = () => {
   $('#user_name').on('keyup', function() {
-    var input = $(this),
+    let input = $(this),
         is_name = input.val();
 
     if(is_name){
@@ -83,21 +85,21 @@ function userNameFieldValidation() {
       input.next().show();
     }
   });
-}
+};
 
 //Input event listener for user email field
-function userEmailInputEvent() {
+var userEmailInputEvent = () => {
   $("#user_email").on("keyup", function(e) {
     console.log("Input event listener on user email field:  " + $(this).val());
   });
-}
+};
 
-function savePageVariationIdentifier() {
+var savePageVariationIdentifier = () => {
   console.log("Variation Identifier:  " +  window.readCookie("ABTestModal-cookie"));
-}
+};
 
 //Floating labels on form fields
-function floatingLabels() {
+var floatingLabels = () => {
   $("body").on("input propertychange", ".floating-label-form-group", function(e) {
     $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
   }).on("focus", ".floating-label-form-group", function() {
@@ -105,4 +107,4 @@ function floatingLabels() {
   }).on("blur", ".floating-label-form-group", function() {
     $(this).removeClass("floating-label-form-group-with-focus");
   });
-}
+};

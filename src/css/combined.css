@@ -1,13 +1,6 @@
 #responsive.modal {
-  background-color: #eee;
+  background-color: #eeeeee;
   width: 900px;
-  left: 40%;
-}
-#responsive.modal.fade {
-  transition: top 0.5s ease-out, bottom 0.5s ease-out, margin-top 1s ease-out;
-}
-#responsive.modal.fade.in {
-  top: 20%;
 }
 #responsive.modal #user-state {
   width: 50%;
@@ -25,7 +18,7 @@
   background-color: #ff851f;
   border-color: #e56800;
   border: 0;
-  color: #fff;
+  color: #ffffff;
   width: 170px;
   margin-top: 25px;
 }
@@ -35,12 +28,46 @@
 #responsive.modal .modal-body {
   padding: 0 26px 40px;
 }
+#responsive.modal .modal-dialog {
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #responsive.modal .modal-dialog {
+    width: auto;
+    margin: 0 auto;
+  }
+}
+#responsive.modal.fade {
+  transition: top 0.5s ease-out, bottom 0.5s ease-out, margin-top 1s ease-out;
+}
+#responsive.modal.fade.in {
+  top: 5%;
+  left: 40%;
+}
+@media (min-width: 400px) and (max-width: 980px) {
+  #responsive.modal.fade.in {
+    left: 0%;
+  }
+}
 #responsive.modal .col-50 {
   width: 47%;
   float: left;
 }
+@media (max-width: 980px) {
+  #responsive.modal .col-50 {
+    width: 45%;
+  }
+}
 #responsive.modal select {
   height: 52px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  outline: none;
+  font-size: 16px;
+  width: 92%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 #responsive.modal select::-webkit-input-placeholder,
 #responsive.modal select::-moz-placeholder,
@@ -48,9 +75,34 @@
 #responsive.modal select:-moz-placeholder {
   color: #9d9d9d;
 }
+#responsive.modal .select {
+  border-radius: 3px;
+  color: #616263;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+#responsive.modal .select:after {
+  content: "▼";
+  padding: 12px 14px;
+  position: absolute;
+  right: 10px;
+  top: 28px;
+  z-index: 1;
+  text-align: center;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+  box-sizing: border-box;
+}
 #responsive.modal .right-col {
   text-align: center;
   padding-top: 10px;
+}
+@media (max-width: 990px) {
+  #responsive.modal .right-col {
+    margin-top: 84px;
+  }
 }
 #responsive.modal .right-col #bg_image {
   background-image: url("../images/imgnocheckmark.png");
@@ -58,6 +110,11 @@
   background-size: 100% 100%;
   width: 400px;
   height: 300px;
+}
+@media (max-width: 400px) {
+  #responsive.modal .right-col #bg_image {
+    background-size: 90% 90%;
+  }
 }
 #responsive.modal .form-horizontal .form-control {
   border-radius: 2px;
@@ -67,6 +124,11 @@
   margin: 0 15px;
   padding: 15px;
   -moz-box-sizing: border-box;
+}
+@media (max-width: 400px) {
+  #responsive.modal .form-horizontal .form-control {
+    margin: 0 auto;
+  }
 }
 #responsive.modal .form-horizontal input::-webkit-input-placeholder,
 #responsive.modal .form-horizontal input::-moz-placeholder,
@@ -93,21 +155,26 @@
 }
 #responsive.modal .form-horizontal .error {
   display: none;
-  color: #fff;
+  color: #ffffff;
   padding: 5px;
   background-color: #e75600;
   margin-left: 15px;
   width: 100%;
 }
 #responsive.modal .form-horizontal .error_show {
-  color: #fff;
+  color: #ffffff;
   padding: 5px;
   background-color: #e75600;
   margin-left: 15px;
   width: 100%;
 }
+@media (max-width: 400px) {
+  #responsive.modal .form-horizontal .error_show {
+    margin-left: 0;
+  }
+}
 #responsive.modal .form-horizontal .row:first-child .floating-label-form-group {
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
 }
 #responsive.modal .form-horizontal .form-group {
   margin-right: 0;
@@ -143,14 +210,19 @@
   -ms-transition: top 0.5s ease, opacity 0.5s ease;
   transition: top 0.5s ease, opacity 0.5s ease;
 }
+@media (max-width: 400px) {
+  #responsive.modal .form-horizontal .floating-label-form-group label {
+    padding-left: 0;
+  }
+}
 #responsive.modal .form-horizontal .floating-label-form-group-with-value label {
   top: 0;
   opacity: 1;
 }
 #responsive.modal .form-horizontal .floating-label-form-group-with-focus label {
-  color: #000;
+  color: #000000;
 }
 .modal-backdrop,
 .modal-backdrop.fade.in {
-  background: #000;
+  background: #000000;
 }

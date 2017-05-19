@@ -14,7 +14,7 @@ module.exports = function(grunt){
     js_combine_files : [
       'src/vendor/js/jquery-1.10.1.min.js',
       'src/vendor/js/bootstrap.min.js',
-      'src/js/main.js'],
+      'src/js/main-es6.js'],
     
     js_hint_files : [
       'src/js/main.js'],
@@ -29,6 +29,20 @@ module.exports = function(grunt){
   /* Init
   ============================ */
   grunt.initConfig({
+     browserify: {
+        dist: {
+            files: {
+                // destination for transpiled js : source js
+                'src/js/main-es6.js': 'src/js/main.js'
+            },
+            options: {
+                transform: [['babelify', { presets: "es2015" }]],
+                browserifyOptions: {
+                    debug: true
+                }
+            }
+        }
+    },
     less: {
       production: {
         files: {
@@ -98,12 +112,13 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-http-server');
 
 
   // Register tasks
-  grunt.registerTask('build', ['less','cssmin','concat','uglify','jshint', 'copy']);
-  grunt.registerTask('watch', ['less','cssmin','concat','uglify','jshint', 'copy']);
+  grunt.registerTask('build', ['less','cssmin','jshint','concat','browserify:dist','uglify', 'copy']);
+  grunt.registerTask('watch', ['less','cssmin','jshint','concat','browserify:dist','uglify', 'copy']);
   grunt.registerTask('default', ['less','cssmin','concat','uglify','jshint']);
 
   grunt.event.on('watch', function(action, filepath) {
